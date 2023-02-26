@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1,maximum-scale=1,user-scalable=no, width=device-width, initial-scale=1" />
+    <title>NAV NATION
+    </title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:900'><link rel="stylesheet" href="css/style.css">
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link href="css/style.css">
+
+     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+<!--      <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script> -->
+
+     <link href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+<!--Import Mapbox GL JS  -->
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+  <!-- Import Assembly -->
+  <link href='https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css' rel='stylesheet'>
+  <script src='https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.js'></script>
+    
+    
+    <style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+    #instructions {
+        position: relative;
+        margin: 20px;
+        width: 25%;
+        top: 0;
+        bottom: 20%;
+        padding: 20px;
+        background-color: #fff;
+        overflow-y: scroll;
+        font-family: sans-serif;
+      }  
+
+      
+	</style>
+  </head>
+  <body>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css" type="text/css">
+    <style>
+      body {
+        background-image: url('images/481285.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+      }
+      </style>
+  <nav class="navbar bg-dark" data-bs-theme="dark">
+       
+      
+      
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">NAV-NATION</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav></nav>
+    <div class="row g-0 text-center my-4">
+        <div class="col-sm-6 col-md-6 my-5"><div class="container"><!-- partial:index.partial.html -->
+<ul class="Words">
+  <li class="Words-line">
+    <p>&nbsp;</p>
+    <p>NAV-igation</p>
+  </li>
+  <li class="Words-line">
+    <p>NAV</p>
+    <p>NATION</p>
+  </li>
+  <li class="Words-line">
+    <p>NAV-NATION</p>
+    <p></p>
+  </li>
+  <li class="Words-line">
+    <p>Plan Ahead</p>
+    <p>DIVERSION_2k23</p>
+  </li>
+  <li class="Words-line">
+    <p>Before you go!</p>
+    <p>MLH-HACKS</p>
+  </li>
+</ul>
+    </div></div>
+        <div class="col-6 col-md-6">
+            <style>
+                .map
+                    {
+  border-radius: 15px;
+  border: 2px solid #73AD21;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+}
+@media screen and (max-width:576px){
+    .map{
+        width: 70%;
+        height: 400px;
+    }
+    .col-6{
+        width: 80%;
+        height:300px
+    }
+}
+                
+            </style>
+             <div id="map" class="map mx-5" style="width: 700px; height: 600px"></div>
+             <button class="btn btn-light" onclick="getnearby()">Get Nearby Places</button>
+            </div>
+      </div>
+        <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW50aS1oZXJvIiwiYSI6ImNsZWg4aHlodzBkd2szc3FyMjNueTI0cXYifQ.GsLCWVU6VFa86EpC--zTFA';
+    const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-24, 42], // starting center in [lng, lat]
+    zoom: 1 // starting zoom
+  });
+      
+  // Add geolocate control to the map.
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      // When active the map will receive updates to the device's location as it changes.
+      trackUserLocation: true,
+      // Draw an arrow next to the location dot to indicate which direction the device is heading.
+      showUserHeading: true
+    })
+  );
+      
+  map.addControl(
+    new MapboxDirections({
+    accessToken: mapboxgl.accessToken
+  }),
+'top-left'
+)
+
+const myAPIKey = "3027447efc564f43b4d80f1dc3675135";
+
+
+
+function getnearby() {
+
+      
+      var latandlong = document.querySelectorAll("#map > div.mapboxgl-control-container > div.mapboxgl-ctrl-top-left > div > div.directions-control.directions-control-instructions > div > div.mapbox-directions-instructions > div > ol > li")
+      var latarray = []
+      latandlong.forEach(element => latarray.push(Number(element.dataset.lat)))
+      var lngarray = []
+      latandlong.forEach(element => lngarray.push(Number(element.dataset.lng)))
+      console.log(lngarray)
+
+      var selectGeolocationlat = []
+      var selectGeolocationlng = []
+      var c = 0
+      for(let i = 3; i < lngarray.length; i +=5) { 
+        selectGeolocationlat[c]=(latarray[i])
+        selectGeolocationlng[c]=(lngarray[i])
+        c++ 
+       
+      }
+      console.log(selectGeolocationlat)
+      
+      for(let i = 0; i < selectGeolocationlat.length; i++) {
+        let marker = new mapboxgl.Marker()
+        .setLngLat([selectGeolocationlng[i], selectGeolocationlat[i]])
+        .addTo(map);
+      }
+    }
+
+
+    
+  </script>
+    
+   
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+<!--         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqd1XS0Jt-VUrhm_x1nY9bmQEk5xwf8Sc&libraries=places"></script> -->
+    
+   
+  </body>
+</html>
